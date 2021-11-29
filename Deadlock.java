@@ -25,9 +25,9 @@ class ThreadA implements Runnable{
   @Override
   public void run() {
     synchronized(r1){
-      System.out.println("" + r1.getName() + " locked");
+      System.out.println("" + r1.getName() + " locked by Thread A");
       synchronized(r2){
-        System.out.println("Reached here");
+        System.out.println("" + r2.getName() + " locked by Thread A");
       }
     }      
   }  
@@ -43,13 +43,14 @@ class ThreadB extends Thread{
   @Override
   public void run() {
     synchronized(r2){
-      System.out.println("" + r2.getName() + " locked");
+      System.out.println("" + r2.getName() + " locked by Thread B");
       synchronized(r1){
-        System.out.println("Reached here");
+        System.out.println("" + r1.getName() + " locked by Thread B");
       }
     }   
   }
 }
+
 public class Deadlock{
   public static void main(String[] args) {
     Resource r1 = new Resource("Resource1");
