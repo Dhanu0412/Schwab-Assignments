@@ -55,8 +55,11 @@ public class Deadlock{
   public static void main(String[] args) {
     Resource r1 = new Resource("Resource1");
     Resource r2 = new Resource("Resource2");
-    Thread t1 = new Thread(new ThreadA(r1, r2));
+    
+    ThreadA ta = new ThreadA(r1, r2);
+    Thread t1 = new Thread(ta);
     ThreadB t2 = new ThreadB(r1, r2);
+    
     t1.start();
     
     t2.start();
