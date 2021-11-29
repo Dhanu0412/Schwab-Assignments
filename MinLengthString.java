@@ -16,20 +16,37 @@ public class MinLengthString {
 	public static void main(String[] args) {
 		
 		String s;
-		System.out.println("Enter the string to find out the minimum length after removing substrings");
-		Scanner sc = new Scanner(System.in);
-		s = sc.nextLine();
-		int i=0;
-		int j=s.length()-1;
-		while(i<j && s.charAt(i)==s.charAt(j)) {
-			char d = s.charAt(i);
-			while(i<=j && s.charAt(i)==d)
-				i++;
-			while(i<=j && s.charAt(j)==d)
-				j--;
-		}
-		int minLen=j-i+1;
-		System.out.println("Minimum length is " + minLen);
+		boolean a = true;
+		while (a) {
+			System.out.println("Menu \n1. To find minimum length of string \n2.Exit");
+			Scanner sc = new Scanner(System.in);
+			switch(sc.nextInt()) {
+			case 1:
+				System.out.println("Enter the string to find out the minimum length after removing substrings");
+				Scanner sca = new Scanner(System.in);
+				s = sca.nextLine();
+				int i=0;
+				int j=s.length()-1;
+				while(i<j && s.charAt(i)==s.charAt(j)) {
+					char d = s.charAt(i);
+					while(i<=j && s.charAt(i)==d)
+						i++;
+					while(i<=j && s.charAt(j)==d)
+						j--;
+				}
+				int minLen=j-i+1;
+				System.out.println("Minimum length is " + minLen);
+				System.out.println("\n");
+				break;
+			case 2:
+				a = false;
+				break;
+			default:
+				System.out.println("Please enter a valid choice!!!!!!!\n");
+				break;
+			}
+		}		
+		
 	}
 
 }
